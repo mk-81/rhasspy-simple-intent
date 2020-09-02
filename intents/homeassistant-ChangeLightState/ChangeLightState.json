@@ -1,0 +1,54 @@
+{
+    "entities": [
+        {
+            "end": 9,
+            "entity": "state",
+            "raw_end": 9,
+            "raw_start": 6,
+            "raw_value": "aus",
+            "start": 6,
+            "value": "aus",
+            "value_details": {
+                "kind": "Unknown",
+                "value": "aus"
+            }
+        },
+        {
+            "end": 101,
+            "entity": "entity_id",
+            "raw_end": 9,
+            "raw_start": 10,
+            "raw_value": "",
+            "start": 10,
+            "value": "light.living_colors_wohnzimmer light.beleuchtung_lichterschlauch light.beleuchtung_pflanzen",
+            "value_details": {
+                "kind": "Unknown",
+                "value": "light.living_colors_wohnzimmer light.beleuchtung_lichterschlauch light.beleuchtung_pflanzen"
+            }
+        }
+    ],
+    "intent": {
+        "confidence": 1,
+        "name": "ChangeLightState"
+    },
+    "raw_text": "licht aus",
+    "raw_tokens": [
+        "licht",
+        "aus"
+    ],
+    "recognize_seconds": 0.1297696520050522,
+    "slots": {
+        "entity_id": "light.living_colors_wohnzimmer light.beleuchtung_lichterschlauch light.beleuchtung_pflanzen",
+        "state": "aus"
+    },
+    "speech_confidence": 1,
+    "text": "licht aus light.living_colors_wohnzimmer light.beleuchtung_lichterschlauch light.beleuchtung_pflanzen",
+    "tokens": [
+        "licht",
+        "aus",
+        "light.living_colors_wohnzimmer",
+        "light.beleuchtung_lichterschlauch",
+        "light.beleuchtung_pflanzen"
+    ],
+    "wakeword_id": null
+}

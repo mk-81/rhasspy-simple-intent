@@ -1,0 +1,67 @@
+{
+    "entities": [
+        {
+            "end": 36,
+            "entity": "entity_id",
+            "raw_end": 9,
+            "raw_start": 10,
+            "raw_value": "",
+            "start": 10,
+            "value": "media_player.tv_wohnzimmer",
+            "value_details": {
+                "kind": "Unknown",
+                "value": "media_player.tv_wohnzimmer"
+            }
+        },
+        {
+            "end": 40,
+            "entity": "state",
+            "raw_end": 13,
+            "raw_start": 10,
+            "raw_value": "aus",
+            "start": 37,
+            "value": "aus",
+            "value_details": {
+                "kind": "Unknown",
+                "value": "aus"
+            }
+        },
+        {
+            "end": 52,
+            "entity": "action",
+            "raw_end": 13,
+            "raw_start": 14,
+            "raw_value": "",
+            "start": 41,
+            "value": "turn_on_off",
+            "value_details": {
+                "kind": "Unknown",
+                "value": "turn_on_off"
+            }
+        }
+    ],
+    "intent": {
+        "confidence": 1,
+        "name": "ControlMediaPlayer"
+    },
+    "raw_text": "fernseher aus",
+    "raw_tokens": [
+        "fernseher",
+        "aus"
+    ],
+    "recognize_seconds": 0.11883593600214226,
+    "slots": {
+        "action": "turn_on_off",
+        "entity_id": "media_player.tv_wohnzimmer",
+        "state": "aus"
+    },
+    "speech_confidence": 1,
+    "text": "fernseher media_player.tv_wohnzimmer aus turn_on_off",
+    "tokens": [
+        "fernseher",
+        "media_player.tv_wohnzimmer",
+        "aus",
+        "turn_on_off"
+    ],
+    "wakeword_id": null
+}

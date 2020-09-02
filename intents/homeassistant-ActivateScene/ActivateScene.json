@@ -1,0 +1,42 @@
+{
+    "entities": [
+        {
+            "end": 44,
+            "entity": "entity_id",
+            "raw_end": 23,
+            "raw_start": 24,
+            "raw_value": "",
+            "start": 24,
+            "value": "scene.wohnzimmer_aus",
+            "value_details": {
+                "kind": "Unknown",
+                "value": "scene.wohnzimmer_aus"
+            }
+        }
+    ],
+    "intent": {
+        "confidence": 1,
+        "name": "ActivateScene"
+    },
+    "raw_text": "alles im wohnzimmer aus",
+    "raw_tokens": [
+        "alles",
+        "im",
+        "wohnzimmer",
+        "aus"
+    ],
+    "recognize_seconds": 0.17289216800418217,
+    "slots": {
+        "entity_id": "scene.wohnzimmer_aus"
+    },
+    "speech_confidence": 1,
+    "text": "alles im wohnzimmer aus scene.wohnzimmer_aus",
+    "tokens": [
+        "alles",
+        "im",
+        "wohnzimmer",
+        "aus",
+        "scene.wohnzimmer_aus"
+    ],
+    "wakeword_id": null
+}
