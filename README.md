@@ -89,10 +89,12 @@ The program will try to extract all relevant information from your profile.json.
 ### Connection to home assistant
 Make sure, you have entered the Home Assistant URL in your rhasspy profile json or maintain a HomeAssistantConfig.json file fith the following structure in your rhasspy profile dir
   
+```
 {
 	"url" : "< HA URL >",
 	"authorizationToken" : < HA authorization token >"
 }
+```
 
 Why running as an service instead of a custom command script?
 * A custom handler does not interfere with other handlers (custom scripts or home assistant).
@@ -101,12 +103,14 @@ Why running as an service instead of a custom command script?
 
 
 ## Structure
+```
 |--- rhasspy-simple-intent            # this is actually in the github project
      |--- services                    # location for all services (e.g. home assistant interface)
             |--- home_assistant       # home assistant service module
       |--- internts                   # location for all intent modules
             |---  BaseIntentHandler   # base class for intent handler inheritance
             |--- ...                  # place for all other intent handlers - name = intent name
+```
 
 ## TODO
 propably a whole lot... at least:
