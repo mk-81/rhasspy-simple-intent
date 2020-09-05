@@ -104,12 +104,12 @@ Why running as an service instead of a custom command script?
 
 ## Structure
 ```
-|--- rhasspy-simple-intent            # this is actually in the github project
-     |--- services                    # location for all services (e.g. home assistant interface)
-            |--- home_assistant       # home assistant service module
-      |--- internts                   # location for all intent modules
-            |---  BaseIntentHandler   # base class for intent handler inheritance
-            |--- ...                  # place for all other intent handlers - name = intent name
+|--- rhasspy-simple-intent           # this is actually in the github project
+     |--- services                   # location for all services (e.g. home assistant interface)
+          |--- home_assistant        # home assistant service module
+     |--- internts                   # location for all intent modules
+          |---  BaseIntentHandler    # base class for intent handler inheritance
+          |--- ...                   # place for all other intent handlers - name = intent name
 ```
 
 ## TODO

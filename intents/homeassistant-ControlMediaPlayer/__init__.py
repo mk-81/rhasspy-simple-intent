@@ -26,7 +26,7 @@ class IntentHandler(BaseIntentHandler):
 			await self.handle_action(entity_id, action)
 
 			
-	def handle_turn_on_off(self, entity_id, slots):
+	async def handle_turn_on_off(self, entity_id, slots):
 		if "state" not in slots:
 			return
 
@@ -42,7 +42,7 @@ class IntentHandler(BaseIntentHandler):
 
 		return result
 
-	def handle_action(self, entity_id, action):
+	async def handle_action(self, entity_id, action):
 		ha_service = self.services.home_assistant.get_instance()
 
 		result = None

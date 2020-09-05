@@ -65,9 +65,12 @@ class Intent_Dispatcher():
 	
 		handler_instance = self._create_handler(intent_name)
 		if handler_instance != None:
-			await handler_instance.initialize()
-			await handler_instance.handle(intent, result)
-			await handler_instance.finalize()
+			try:
+				await handler_instance.initialize()
+				await handler_instance.handle(intent, result)
+				await handler_instance.finalize()
+			except Exception as e:
+				self._logger.exception(e, exc_info=True)
 
 	async def finalize(self):
 		await self._services.finalize()
