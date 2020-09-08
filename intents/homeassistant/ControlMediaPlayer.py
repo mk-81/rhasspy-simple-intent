@@ -36,9 +36,9 @@ class IntentHandler(BaseIntentHandler):
 
 		result = None
 		if state == "on":
-			result = await ha_service.media_players.turn_on(entity_id)
+			result = await ha_service.media_player.turn_on(entity_id)
 		elif state == "off":
-			result = await ha_service.media_players.turn_off(entity_id)
+			result = await ha_service.media_player.turn_off(entity_id)
 
 		return result
 
@@ -47,10 +47,10 @@ class IntentHandler(BaseIntentHandler):
 
 		result = None
 		if action == "play":
-			result = await ha_service.media_players.play(entity_id)
+			result = await ha_service.media_player.play(entity_id)
 		elif action == "pause":
-			result = await ha_service.media_players.pause(entity_id)
+			result = await ha_service.media_player.pause(entity_id)
 		elif action == "stop":
-			result = await ha_service.media_players.stop(entity_id)
+			result = await ha_service.media_player.stop(entity_id)
 
 		return result

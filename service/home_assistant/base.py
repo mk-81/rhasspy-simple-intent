@@ -103,6 +103,15 @@ class AbstractService():
         
         return await session.post(url, headers=headers, json=call_data)
 
+    
+    def supports(self, method):
+        method = str(method)
+        if len(method) == 0 or method[0] == '_':
+            return False
+
+        m = getattr(self, method, None)
+        return m != None and callable(m)
+
         
     async def get_entity_state(self, entity_id):
         url     = self._endpoint_service.buildApiEndpointUrl("/states/" + entity_id)

@@ -12,7 +12,7 @@ class IntentHandler(BaseIntentHandler):
 			return
 
 		try:
-			data = await ha_service.sensors.get_entity_state(entity_id)
+			data = await ha_service.sensor.get_entity_state(entity_id)
 			sensor_value = data["state"] 
 			if sensor_value == "unavailable":
 				result.speak("sensor ist nicht verfügbar")

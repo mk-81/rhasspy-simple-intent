@@ -11,7 +11,7 @@ class IntentHandler(BaseIntentHandler):
 		if entity_id == None or entity_id == "":
 			return
 			
-		r = await ha_service.scenes.turn_on(entity_id)
+		r = await ha_service.scene.turn_on(entity_id)
 		
 		if r == False:
 			result.speak("das kann ich nicht machen")

@@ -36,21 +36,44 @@ class Intent_Dispatcher():
 	def set_debug(self, debug=True):
 		self._debug = debug
 
+	def _get_module(self, intent_name: str):
+		module = None
+		
+		if module == None:
+			try:
+				module = importlib.import_module(".", "intents." + intent_name)
+			except ModuleNotFoundError:
+				module = None
+
+		if module == None:
+			parts = intent_name.split("-", 1)
+			module_name = ".".join(parts)
+			try:
+				module = importlib.import_module(".", "intents." + module_name)
+			except ModuleNotFoundError:
+				module = None
+		
+		return module
+
+
 	def _create_handler(self, intent_name: str) -> BaseIntentHandler:
 		if intent_name not in self._handlers:
 			handler_class = None
-			try:
-				module        = importlib.import_module(".", "intents." + intent_name)
-				handler_class = getattr(module, "IntentHandler")
-			except ModuleNotFoundError as e:
+
+			module = self._get_module(intent_name)
+			if module != None:
+				try:
+					handler_class = getattr(module, "IntentHandler")
+				except Exception as e:
+					self._logger.warning(e)
+			else:
 				self._logger.debug("IntentHandler " + intent_name + " not found")
 
-			except Exception as e:
-				self._logger.warning(e)
-		
+
 			self._handlers[intent_name] = {
 				"handler_class" : handler_class
 			}
+
 
 		handler_info = self._handlers[intent_name]
 		handler_class = handler_info.get("handler_class", None)

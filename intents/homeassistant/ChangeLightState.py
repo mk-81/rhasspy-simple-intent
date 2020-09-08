@@ -20,9 +20,9 @@ class IntentHandler(BaseIntentHandler):
 		
 		for entity_id in entity_ids:
 			if state == "on":
-				calls.append( ha_service.lights.turn_on(entity_ids) )
+				calls.append( ha_service.light.turn_on(entity_id) )
 			elif state == "off":
-				calls.append( ha_service.lights.turn_off(entity_ids) )
+				calls.append( ha_service.light.turn_off(entity_id) )
 			else:
 				return
 
