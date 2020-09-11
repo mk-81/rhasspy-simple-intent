@@ -19,9 +19,6 @@ class IntentHandler(BaseIntentHandler):
 		if action == "turn_on_off":
 			await self.handle_turn_on_off(entity_id, slots)
 
-		elif action == "volume":
-			await self.handle_turn_on_off(entity_id, slots)
-
 		else:
 			await self.handle_action(entity_id, action)
 
@@ -52,5 +49,13 @@ class IntentHandler(BaseIntentHandler):
 			result = await ha_service.media_player.pause(entity_id)
 		elif action == "stop":
 			result = await ha_service.media_player.stop(entity_id)
+		elif action == "mute":
+			result = await ha_service.media_player.volume_mute(entity_id, True)
+		elif action == "unmute":
+			result = await ha_service.media_player.volume_mute(entity_id, False)
+		elif action == "vol_up":
+			result = await ha_service.media_player.volume_up(entity_id)
+		elif action == "vol_down":
+			result = await ha_service.media_player.volume_down(entity_id)
 
 		return result

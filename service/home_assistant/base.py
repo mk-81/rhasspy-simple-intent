@@ -3,6 +3,7 @@ import aiohttp
 from .exceptions import *
 import os
 import json
+from .helpers import entity_name_add_domain
 
 class Config():
     def __init__(self, global_configuration):
@@ -72,6 +73,12 @@ class EndpointService():
 class AbstractService():
     def __init__(self, endpoint_service):
         self._endpoint_service = endpoint_service
+        self._service_name = None
+        self._default_entity_name = None
+        self._init_int()
+
+    def _init_int(self):
+        pass
         
     def _is_http_call_successful(self, status_code):
         return ( status_code == 200 or status_code == 201 )
@@ -89,17 +96,29 @@ class AbstractService():
         else:
             raise HA_BadRequestError()
 
-    async def _call_service(self, service, action, entity_id, data = None):
-        url     = self._endpoint_service.buildApiEndpointUrl("/services/" + service + "/" + action)
+    async def _call_service(self, action, entity_id, **kwargs):
+        if "service" in kwargs:
+            service_name  = kwargs["service"]
+        elif "service_name" in kwargs:
+            service_name  = kwargs["service"]
+        else:
+            service_name  = self._service_name
+
+        url     = self._endpoint_service.buildApiEndpointUrl("/services/" + service_name + "/" + action)
         headers = self._endpoint_service.buildApiHttpHeaders()
 
         session = self._endpoint_service.get_session()
 
-        call_data = data
-        if call_data == None:
+        if entity_id != None and self._default_entity_name != None:
+            entity_id = entity_name_add_domain(entity_id, self._default_entity_name)
+
+        if "data" in kwargs:
+            call_data = kwargs["data"]
+            if entity_id != None:
+                call_data["entity_id"] = entity_id            
+
+        else:
             call_data = { "entity_id": entity_id }
-        elif entity_id != None:
-            call_data["entity_id"] = entity_id
         
         return await session.post(url, headers=headers, json=call_data)
 
